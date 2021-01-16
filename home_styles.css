@@ -1,0 +1,378 @@
+#introduction {
+  margin: 5px auto; 
+  width: 100%; 
+  overflow: hidden;
+  color: white; 
+  font-size: 15pt; 
+}
+
+#intro_wrapper {
+  margin: 0 auto; 
+  max-width: 360px;
+}
+
+/*-----Text Styles-----*/
+#introduction #offered_categories, #introduction #tutorial_and_videos_section {
+  display: block;
+  margin: 2% auto; 
+  width: 100%;
+  overflow: hidden;  
+}
+
+#introduction #offered_categories {
+  padding-bottom: 2%;
+  border-bottom: 1px dashed white;
+}
+
+
+#introduction div h1 {
+  padding: 10px;
+  width: 100%;
+  font-size: 18pt;
+  font-style: italic;
+}
+
+#introduction div h2 {
+  margin-left: 15px; 
+  padding: 2px;
+  width: 100%;
+  font-size: 15pt;
+  font-weight: normal; 
+}
+
+
+#introduction #offered_categories ul{
+  margin-left: 5px; 
+  width: 90%; 
+}
+
+#introduction #offered_categories li {
+  margin: 0 3%; 
+  padding: 1px;
+  width: 42%; 
+  font-size: 80%;
+  float: left;  
+}
+
+#introduction #tutorial_and_videos_section ul{
+  margin-left: 30px; 
+  width: 90%; 
+}
+
+#introduction #tutorial_and_videos_section li {
+  padding: 1px;
+  font-size: 80%;
+}
+
+#introduction #tutorial_and_videos_section #frame_wrapper {
+  width: 90%; 
+  max-width: 400px;
+  margin: 10px;
+}
+
+#introduction #tutorial_and_videos_section #frame_container {
+  position: relative;
+  width: 100%;
+  margin: 0;  
+  height: 0;
+  padding-top: 56.25%; /* The aspect ratio */
+}
+
+#introduction #tutorial_and_videos_section iframe {
+  position: absolute;
+  top:      0;
+  left:     0;
+  bottom:   0;
+  right:    0;
+  width:    100%;
+  height:   100%;
+  border: 1px solid black; 
+  background: black; 
+}
+
+#content {
+  margin: 0 auto;
+  width: 100%;
+  overflow: hidden;
+  background: url("images/mobile/home_content_background.jpg") repeat-x #E7EAFF; 
+}
+
+#content #news_wrapper {
+  margin: 0 auto;
+  max-width: 360px; 
+  border-top: 1px dashed black;
+} 
+
+#content #news_wrapper #new_series, #content #news_wrapper #new_movies {
+  display: block;
+  margin: 10px 2.5%; 
+}
+
+#content #news_wrapper div h2 {
+  margin: 10px 0;
+  text-align: center;
+  font-size: 18pt;
+}
+
+#content #news_wrapper #new_series #new_series_nav, #content #news_wrapper #new_movies #new_movies_nav{
+  margin: 10px auto;
+  width: 75%;
+  overflow: hidden;
+}
+
+#content #news_wrapper #new_series #new_series_nav li, #content #news_wrapper #new_movies #new_movies_nav li{
+  margin: 5px 4%;
+  padding: 1%;
+  width: 20%;
+  display: block;
+  float: left;
+  font-weight: bold;
+  font-size: 16pt;
+  text-align: center;
+  color: #2D3594;
+  background: white;
+  border: 2px solid #2D3594;
+  border-radius: 10px; 
+  cursor: pointer;  
+}
+
+#content #news_wrapper #new_series #new_series_nav li:hover, #content #news_wrapper #new_movies #new_movies_nav li:hover{
+  color: white;
+  background: #2D3594;
+}
+
+#content #news_wrapper #new_series #new_series_nav li.current, #content #news_wrapper #new_movies #new_movies_nav li.current{
+  color: orange;
+  background: #2D3594;
+  border: 2px solid white;
+}
+
+#content #news_wrapper #new_series #series_list, #content #news_wrapper #new_movies #movies_list{
+  margin: 1px auto;
+  overflow: hidden;
+  list-style: none;
+}
+
+#content #news_wrapper #new_series #series_list li, #content #news_wrapper #new_movies #movies_list li{
+  margin: 5px;
+  width: 97%;
+  overflow: hidden;
+  background: url("images/mobile/lista_background.jpg");
+  border: 1px solid #2224A4;
+  border-radius: 5px;
+}
+
+#content #news_wrapper #new_series #series_list li a, #content #news_wrapper #new_movies #movies_list li a{
+  width: 100%; 
+  height: 100%; 
+  display: block; 
+  text-decoration: none; 
+  overflow: hidden;
+}
+
+#content  #news_wrapper #new_series #series_list li a img, #content #news_wrapper #new_movies #movies_list li a img{
+  margin: 5px;
+  width: 120px;
+  height: 100px;
+  float: left;
+  border: 2px solid white;
+}
+
+#content  #news_wrapper #new_series #series_list li a p, #content #news_wrapper #new_movies #movies_list li a p{
+  margin: 0 auto;
+  padding: 8px 0;
+  display: block;
+  font-size: 11pt;
+  max-height: 75%; 
+  overflow: hidden; 
+  text-align: center;
+  color: white;
+}
+
+#content  #news_wrapper #new_series #series_list li a p span, #content #news_wrapper #new_movies #movies_list li a p span{
+  text-decoration: underline;
+  font-style: italic;
+}
+
+#content #news_wrapper #new_series #series_list li:hover, #content #news_wrapper #new_movies #movies_list li:hover{
+  background: #bb700e;
+}
+
+#content #news_wrapper #new_series #series_list li:hover a p, #content #news_wrapper #new_movies #movies_list li:hover a p{
+  text-decoration: underline; 
+}
+
+
+@media screen and (min-width: 481px) {
+
+  #intro_wrapper{
+    max-width: 680px;
+  }
+
+  #introduction #offered_categories, #introduction #tutorial_and_videos_section {
+    margin: 2% auto; 
+    width: 48%;
+    float: left;
+  }
+
+  #introduction #offered_categories {
+    padding-bottom: 2%;
+    border-right: 1px dashed white;
+    border-bottom: none;
+  }
+
+  #content #news_wrapper {
+    max-width: 680px; 
+    border-top: 1px dashed black;
+    
+  }
+  #content #news_wrapper #fcb_series, #content #news_wrapper #fcb_movies {
+    margin: 0 auto;
+    width: 90%;
+  } 
+
+  #content #news_wrapper #new_series, #content #news_wrapper #new_movies {
+    margin: 10px 1.9%; 
+    width: 45%; 
+    float: left; 
+    overflow: hidden; 
+  }
+
+  #content #news_wrapper #new_series{
+    margin-right: 0; 
+    padding-right: 1.9%;
+    border-right: 1px dashed black; 
+  }
+
+  #content #news_wrapper #new_series #new_series_nav, #content #news_wrapper #new_movies #new_movies_nav{
+    margin: 10px auto;
+    width: 75%;
+    overflow: hidden;
+  }
+
+  #content #news_wrapper #new_series #series_list, #content #news_wrapper #new_movies #movies_list{
+    margin: 1px auto;
+    overflow: hidden;
+    list-style: none;
+  }
+  #content  #news_wrapper #new_series #series_list li a img, #content #news_wrapper #new_movies #movies_list li a img{
+    margin: 5px;
+    width: 45%;
+    height: 65px;
+    float: left;
+    border: 1px solid white;
+  } 
+ 
+  #content  #news_wrapper #new_series #series_list li a p, #content #news_wrapper #new_movies #movies_list li a p{
+    margin: 0 auto;
+    padding: 5px 0;
+    font-size: 12pt; 
+    font-weight: normal; 
+    overflow: hidden; 
+  }
+
+}
+
+  @media screen and (min-width: 801px) {
+  
+    /*Intorduction Styles and Rules*/
+    #intro_wrapper{
+      max-width: 1120px;
+    }
+    #introduction #offered_categories, #introduction #tutorial_and_videos_section {
+      margin: 1% 2%; 
+      width: 45%;
+      font-size: 125%;
+    }
+
+    #introduction #offered_categories {
+      padding-right: 1%;
+      border-right: 2px dashed white;
+    }
+
+    #content #news_wrapper {
+      max-width: 1120px; 
+      border-top: 2px dashed black;
+      clear: both;
+      font-size: 120%; 
+    }
+
+    #content #news_wrapper #fcb_series, #content #news_wrapper #fcb_movies {
+      margin: 0 auto;
+      width: 90%;
+    } 
+
+    #content #news_wrapper #new_series, #content #news_wrapper #new_movies {
+      margin: 15px 1%; 
+      width: 45%; 
+    }
+
+    #content #news_wrapper #new_series{
+      padding-right: 1.9%;
+      border-right: 2px dashed black; 
+    }
+
+    #content #news_wrapper #new_series #new_series_nav, #content #news_wrapper #new_movies #new_movies_nav{
+      margin: 10px auto;
+      width: 75%;
+      overflow: hidden;
+    }
+
+    #content #news_wrapper #new_series #series_list, #content #news_wrapper #new_movies #movies_list{
+      margin: 5px auto;
+      overflow: hidden;
+      list-style: none;
+    }
+
+    #content #news_wrapper #new_series #series_list li, #content #news_wrapper #new_movies #movies_list li{
+      width: 85%; 
+      margin: 10px auto; 
+      background: url("images/lista_background.jpg");
+    }
+
+    #content  #news_wrapper #new_series #series_list li a img, #content #news_wrapper #new_movies #movies_list li a img{
+      margin: 8px;
+      height: 90px;
+      border: 2px solid white;
+    }
+   
+    #content  #news_wrapper #new_series #series_list li li a p, #content #news_wrapper #new_movies #movies_list li a p{
+      padding: 8px 0;
+      font-size: 15pt; 
+    }
+}
+
+@media screen and (min-width: 1121px) {
+
+  #intro_wrapper{
+    max-width: 1440px;
+  }
+
+  #introduction #offered_categories, #introduction #tutorial_and_videos_section {
+    margin: 1% 2%; 
+    width: 45%;
+    font-size: 160%;
+  }
+
+  #introduction div h1 {
+    font-size: 115%;
+    }
+
+    #content #news_wrapper {
+      max-width: 1440px; 
+      font-size: 130%; 
+    }  
+
+    #content #news_wrapper #new_series #series_list li, #content #news_wrapper #new_movies #movies_list li{
+      width: 45%; 
+      margin: 10px 2%; 
+      float: left;
+      clear: none; 
+      background: url("images/lista_background.jpg");
+    }
+   
+    #content  #news_wrapper #new_series #series_list li a p, #content #news_wrapper #new_movies #movies_list li a p{
+      font-size: 13pt; 
+    }
+
+}
