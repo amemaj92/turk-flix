@@ -43,9 +43,9 @@
         <div id="header_main">
            <img id="logo" src="images/logo.png" alt="Turkishseriesandmovies logo">
                 <div id="main_nav">
-                  <a href="index.html" class="current">Home</a>
-                  <a href="series/index.html">Series</a>
-                  <a href="/movies/index.php">Movies</a>
+                  <a href="index.php" class="current">Home</a>
+                  <a href="series/index_series.php">Series</a>
+                  <a href="/movies/index_movies.php">Movies</a>
                   <a href="/premium/info.php">Premium</a>
                </div>
          </div>
