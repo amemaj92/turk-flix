@@ -1,0 +1,162 @@
+#content {
+    margin: 0 auto;
+    width: 100%;
+    min-width: 320px;
+    max-width: 360px; 
+    background-color: #E7EAFF;
+    font-size: 14pt; 
+  }
+
+  #content h1 {
+    margin: 15px 0;
+    padding: 5px ;
+    font-size: 150%;
+    text-align: center;
+  }
+
+  #content h2 {
+    margin: 5px 0;
+    padding: 5px ;
+    font-size: 120%;
+    text-align: center;
+  }
+
+  #content #sort_form, #content #simple_search_form, #content #adv_search_form {
+    border-top: 1px dashed #2224A4; 
+    margin: 0 auto; 
+    margin-bottom: 5px; 
+  }
+
+  #content #sort_form form, #content #simple_search_form form, #content #adv_search_form form {
+    width: 90%; 
+    margin: 0 auto; 
+  }
+
+  #content #sort_form form select{
+    width: 60%; 
+    margin: 5px auto; 
+    padding: 3px; 
+    font-weight: bold; 
+    font-size: 70%; 
+    color: #2224A4;; 
+    background: white;  
+    padding: 3px; 
+    list-style: none; 
+    border-top: 2px solid white; 
+    cursor:pointer;
+  }
+
+  #content #sort_form form input[type=submit]{
+    width: 25%; 
+    margin: 5px; 
+    padding: 3px; 
+    border: 2px solid white;
+    border-radius: 5px; 
+    font-weight: bold; 
+    font-size: 90%; 
+    color: white; 
+    background: #2224A4; 
+    cursor:pointer;
+  }
+
+  #content #simple_search_form input[type=text]{
+    width: 60%;
+    margin: 5px auto;
+    padding: 3px;
+    border: 2px solid #2224A4;
+    font-weight: bold;
+    color: black;
+    background: white;
+  } 
+
+  #content #simple_search_form input[type=submit]{
+    width: 25%; 
+    margin: 5px ; 
+    padding: 3px; 
+    border: 2px solid white;
+    border-radius: 5px; 
+    font-weight: bold; 
+    font-size: 90%; 
+    color: white; 
+    background: #2224A4; 
+    cursor:pointer;
+  }
+
+  #content #simple_search_form #avd_search_toggler {
+    display:block;
+    margin: 10px auto; 
+    padding: 5px; 
+    width: 55%; 
+    max-width: 280px;
+    text-align: center; 
+    color: #00001d;
+    font-weight: bold; 
+    font-size: 85%;   
+    border: 1px solid black;
+    border-radius: 8px;
+  }
+
+  #content #adv_search_form {
+    margin-bottom: 5px; 
+    display: ;  
+  }
+
+  #content #adv_search_form fieldset{
+    border: 1px solid #2224A4; 
+  }
+
+  #content #adv_search_form fieldset legend{
+    padding: 5px; 
+    font-weight: bold; 
+    text-align: center; 
+  }
+
+  #content #adv_search_form fieldset p{
+    font-size: 75%; 
+    padding: 3px 5px; 
+    text-align: center; 
+    font-style: italic;
+  }
+
+  #content #adv_search_form fieldset ul{
+    list-style: none; 
+  }
+
+  #content #adv_search_form fieldset ul li{
+    overflow: hidden; 
+    margin: 5px;
+  }
+
+  #content #adv_search_form fieldset ul li label{
+    display: block; 
+    width: 25%;
+    padding: 3px; 
+    float: left;  
+    font-size: 90%; 
+    font-weight: bold; 
+  }
+
+  #content #adv_search_form fieldset ul li input[type=text]{
+    width: 65%; 
+    padding: 3px;
+    border: 2px solid #2224A4;
+    font-weight: bold;
+    color: black;
+    background: white;
+  }
+
+  #content #adv_search_form fieldset ul li input[type=submit]{
+    display: block; 
+    width: 30%; 
+    margin: 5px auto; 
+    padding: 3px; 
+    border: 2px solid white;
+    border-radius: 5px; 
+    font-weight: bold; 
+    font-size: 90%; 
+    color: white;
+    background: #2224A4; 
+    cursor:pointer;
+  }
+
+  

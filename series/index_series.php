@@ -1,9 +1,10 @@
+<!DOCTYPE HTML>
 <?php 
 
  /*----PHP Scripts And Variables----*/
     	error_reporting(E_ALL);
     	ini_set('display_errors', 1);
-    //----Scripts   
+ 
     session_start();
     include_once("../uni/db_connect.php"); 
     //Declaring Varibales
@@ -26,9 +27,7 @@
     if(isset($_POST) && count($_POST)) {$_SESSION['post'] = $_POST;}
     if(isset($_SESSION['post']) && count($_SESSION['post'])) {$_POST = $_SESSION['post'];}
 
-echo '
-<!DOCTYPE HTML>
-
+  ?>
 <html lang="en">
     <head>
         <meta charset="utf-8">
@@ -43,25 +42,36 @@ echo '
 	<!-- +++ Links and Scripts Section +++ -->		
 
 	<!-- +++ Basic small screen style up to 960px +++ -->
-	<link rel="stylesheet" type="text/css" href="../uni/uni_style.css">
-	<link rel="stylesheet" type="text/css" href="../series/index_style.css">
+	<link rel="stylesheet" type="text/css" href="../uni_styles.css">
+	<link rel="stylesheet" type="text/css" href="series_styles.css">
 	<!-- +++ Own Scripts +++ -->
         <script type="text/javascript" src="/uni/Core.js"></script>
         <script type="text/javascript" src="index.js"></script>
 	
 	<!-- +++ Outside Scripts +++ -->
-    </head>
+	</head>
+	
     <body>	    
-        <!-- +++ Universal Header and Nav  ++ Serving SubCategory as Input to Scripts+++ -->';
-        HeaderAndNavEcho("Series"); 
-        echo '
+	<div id="header">
+      <div id="header_upper_strip">
+        <div id="header_main">
+           <img id="logo" src="../images/logo.png" alt="Turkishseriesandmovies logo">
+                <div id="main_nav">
+                  <a href="../index.php">Home</a>
+                  <a href="index_series.php" class="current">Series</a>
+                  <a href="../movies/index_movies.php">Movies</a>
+                  <a href="../premium/info.php">Premium</a>
+               </div>
+         </div>
+      </div>
+    </div>
              
 	<div id="content">
 	    <div id="wrapper">
-		<h1>Turkish Series with English Subtitles</h1>';
-		
-		/*The Sort and search section*/
-		echo '
+		   <h1>Turkish Series with English Subtitles</h1>
+
+		     <!-- The sort and search section-->
+
 		<div id="sort_form">
 			<h2>Choose a Sorting Option:</h2>
 			<form action="" method="GET">
@@ -78,7 +88,7 @@ echo '
 		
 		<div id="simple_search_form">
 			<h2>Search for something general:</h2>
-			<form  action="/series/'.$Sort.'" method="POST">
+			<form  action="'.$Sort.'" method="POST">
 				<input type="hidden" name="Req_Type" value="simple_search">
 				<input type="text" name="search_string" placeholder="Title, actor, director">
 				<input type="submit" value="Search">
@@ -86,11 +96,12 @@ echo '
 			<a href="#" id="avd_search_toggler">Advanced Search</a> 
 		</div>
 		<div id="adv_search_form">			
-			<form action="/series/'.$Sort.'" method="POST">
-			<input type="hidden" name="Req_Type" value="advanced_search">
-			<fieldset><legend>Advanced Search</legend>
-				<p>Note: When entering multiple data on one field, separate them with a comma.</p>
-				<ul>
+			<form action="'.$Sort.'" method="POST">
+			  <input type="hidden" name="Req_Type" value="advanced_search">
+			    <fieldset>
+					<legend>Advanced Search</legend>
+				    <p>Note: When entering multiple data on one field, separate them with a comma.</p>
+				    <ul>
 					<li>
 					<label for="title">Title:</label>
 					<input type="text" id="titulli" name="Title" placeholder="Kara Sevda">
@@ -122,97 +133,33 @@ echo '
 				</ul>				
 			</form>
 		</div>
-		';	
 		
-		echo '<div id="nenkategorite">';
-		echo '<form action="/series/'.$Sort.'" method="POST"> <input type="hidden" name="Req_Type" value="subgenre_filter">';		
-		echo '<ul id="lista_nenkategorive">';	
-		$subgenre_array=SeriesSubcategoriesArrayEcho();
-		$selected_subgenre_array=array(); 
-		if(isset($_POST["subgenre"]))  $selected_subgenre_array=$_POST["subgenre"];
-		for($i=1; $i<count($subgenre_array); $i++) 
-		{
-			$checked=""; //make checked if checked. 
-			$class="";  //change li class to "checked" if checked
-			
-			for($j=0; $j<count($selected_subgenre_array); $j++) 
-			{
-				if($subgenre_array[$i]==$_POST["subgenre"][$j]) 
-				{
-					$checked="checked"; $class="checked"; break;
-				} 
-				else continue;
-			}
-		echo "<li class='$class'><input type='checkbox' name='subgenre[]' id='checkbox".$i."' value='$subgenre_array[$i]' $checked><span>$subgenre_array[$i]</span></li>";}	
 		
-		echo '</ul>';
-		echo '<div><input type="submit" name="submit" value="Filter"> 
-		<a href="/series/">Reset</a></div></form></div>';
+		
+	  	<ul id="series_list">
 
-	  	echo '<ul id="lista_seriale">';
+		<?php
+		
+		/*-- Use mysql functions: mysqli_query(…) and mysqli_fetch_array(…) 
+		to execute a sql query to take the data from the database and
+		than to take a row array from the query result set.--*/
+		$query="SELECT * FROM `Main` ORDER BY `Last_Update` DESC, `Rank` DESC LIMIT 24";
+		$result=mysqli_query($VID_SERIES, $query);
+		while($row=mysqli_fetch_assoc($result)) {
+		 $Last_Episode_Part_array=($row["Last_Episode"]);
+		 $genre=($row["Subgenre"]);
+		 $title_str=($row["Search_Index"]);
+		 $last_episode=($row["Last_Episode"]);
+		 $anchor_href="/series/file/$row[Indexer]";
+		 $img_src="series/foto/thumbs/".$row["Indexer"].".jpg";
+		   echo '<li> <a href="'.$anchor_href.'"> <img src="'.$img_src.'" alt="" />
+					 <p>'.$title_str.'</p>
+					 <p>Genres:'.$genre.'</p>
+					 <p>Last Episode: '.$last_episode.'</p>
+				</li>';
+		   } 
+	
+		?>
 
-		//Script for series list generation
-		$incl_return=include('../../protected_scripts/series_list_and_search_script.php');
-		
-		//Window Range Calculation 
-		if($Window%5==0) $window_range=intval($Window/5);
-		else $window_range=intval($Window/5)+1;
-	 	echo '</ul>';
-	 	
-	 	echo '
-	 	<ul id="bottom_nav"><li><a href="';
-	 	//Numrat e navigacionit do te varen nga Current Window.
-	 	if($window_range>1) echo '/series/'.(($window_range-1)*5).'">';
-	 	else {echo '#" class="greyed">';}
-	 	echo '&lt;&lt;</a></li>
-	 	
-	 	<li><a href="';
-	 	//Check if window is within range
-	 	if(((($window_range-1)*5)+1)>$num_windows) echo '#" class="greyed"';
-	 	else {echo '/series/'.$Sort.'/'.((($window_range-1)*5)+1).'"'; if(((($window_range-1)*5)+1)==$Window) echo ' class="current"';}
-	 	echo '>'.((($window_range-1)*5)+1).'</a></li>
-	 	
-	 	<li><a href="';
-	 	//Check if window is within range
-	 	if(((($window_range-1)*5)+2)>$num_windows) echo '#" class="greyed"';
-	 	else {echo '/series/'.$Sort.'/'.((($window_range-1)*5)+2).'"'; if(((($window_range-1)*5)+2)==$Window) echo ' class="current"';}
-	 	echo '>'.((($window_range-1)*5)+2).'</a></li>
-	 	
-	 	<li><a href="';
-	 	//Check if window is within range
-	 	if(((($window_range-1)*5)+3)>$num_windows) echo '#" class="greyed"';
-	 	else {echo '/series/'.$Sort.'/'.((($window_range-1)*5)+3).'"'; if(((($window_range-1)*5)+3)==$Window) echo ' class="current"';}
-	 	echo '>'.((($window_range-1)*5)+3).'</a></li>
-	 	
-	 	<li><a href="';
-	 	//Check if window is within range
-	 	if(((($window_range-1)*5)+4)>$num_windows) echo '#" class="greyed"';
-	 	else {echo '/series/'.$Sort.'/'.((($window_range-1)*5)+4).'"'; if(((($window_range-1)*5)+4)==$Window) echo ' class="current"';}
-	 	echo '>'.((($window_range-1)*5)+4).'</a></li>
-	 	
-	 	<li><a href="';
-	 	//Check if window is within range
-	 	if(((($window_range-1)*5)+5)>$num_windows) echo '#" class="greyed"';
-	 	else {echo '/series/'.$Sort.'/'.((($window_range-1)*5)+5).'"'; if(((($window_range-1)*5)+5)==$Window) echo ' class="current"';}
-	 	echo '">'.((($window_range-1)*5)+5).'</a></li>
-	 	
-	 	<li><a href="';
-	 	//Check if window is within range
-	 	if(((($window_range-1)*5)+6)>$num_windows) echo '#" class="greyed"';
-	 	else echo '/series/'.$Sort.'/'.((($window_range-1)*5)+6);
-	 	echo '">&gt;&gt;</a></li>
-	 	
-	 	</ul>
-	 	
-		</div>';
-		
-	    //Kontrolli nese eshte futur manualisht nje dritare ne url. 
-	    if($incl_return!=1) echo "<p>$incl_return</p>";
-	    else if ($num_windows==0) echo "<p>Error - No result matches the criteria.</p>";
-	    else if($Window>$num_windows) echo "<p>Error - This Window is too big. Try a smaller number.</p>";
-		
-    	    echo '</div>';
-    	    echo '
     </body>	
-</html>';
-?>   
+</html>   
