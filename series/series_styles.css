@@ -231,7 +231,7 @@
     display: block; 
     width: 100%; 
     color: #2D3594;
-
+  }
   /*--------------------------------------------------*/
 
   /*Medium Screens*/
@@ -241,7 +241,7 @@
     #content {
       max-width: 680px; 
       font-size: 16pt; 
-  }
+     }
 
   #content  #series_list{
     max-width: 680px;
@@ -324,7 +324,7 @@
     width: 30%;
     background: url("../images/lista_background.jpg");
   }
-  
+
 }
 
 /*--------------------------------------------------*/
