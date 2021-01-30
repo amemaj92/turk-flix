@@ -66,8 +66,8 @@
       </div>
     </div>
              
-	<div id="content">
-	    <div id="wrapper">
+<div id="content">
+	<div id="wrapper">
 		   <h1>Turkish Series with English Subtitles</h1>
 
 		     <!-- The sort and search section-->
@@ -108,7 +108,7 @@
 					</li>
 					
 					<li>
-					<label for="director">Director:</label>
+					<label for="director">Direct:</label>
 					<input type="text" id="regjia" name="Directors" placeholder="Hilal Saral">
 					</li>
 					
@@ -136,7 +136,7 @@
 		
 		
 		
-	  	<ul id="series_list">
+	<div id="series_list">
 
 		<?php
 		
@@ -151,15 +151,24 @@
 		 $title_str=($row["Search_Index"]);
 		 $last_episode=($row["Last_Episode"]);
 		 $anchor_href="/series/file/$row[Indexer]";
-		 $img_src="series/foto/thumbs/".$row["Indexer"].".jpg";
+		 $img_src="foto/thumbs/".$row["Indexer"].".jpg";
 		   echo '<li> <a href="'.$anchor_href.'"> <img src="'.$img_src.'" alt="" />
 					 <p>'.$title_str.'</p>
 					 <p>Genres:'.$genre.'</p>
-					 <p>Last Episode: '.$last_episode.'</p>
+					 <p> <span>Last Episode: '.$last_episode.' </span></p>
 				</li>';
 		   } 
-	
-		?>
+		 //Window Range Calculation
+		   
 
-    </body>	
+
+
+		?>
+	</div>
+
+	 
+   
+</div>
+</div>
+</body>	
 </html>   
