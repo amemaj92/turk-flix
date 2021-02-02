@@ -66,8 +66,8 @@
       </div>
     </div>
              
-	<div id="content">
-	    <div id="wrapper">
+<div id="content">
+	<div id="wrapper">
 		   <h1>Turkish Series with English Subtitles</h1>
 
 		     <!-- The sort and search section-->
@@ -108,7 +108,7 @@
 					</li>
 					
 					<li>
-					<label for="director">Director:</label>
+					<label for="director">Direct:</label>
 					<input type="text" id="regjia" name="Directors" placeholder="Hilal Saral">
 					</li>
 					
@@ -136,30 +136,65 @@
 		
 		
 		
-	  	<ul id="series_list">
+	<div id="series_list">
 
 		<?php
-		
-		/*-- Use mysql functions: mysqli_query(…) and mysqli_fetch_array(…) 
-		to execute a sql query to take the data from the database and
-		than to take a row array from the query result set.--*/
-		$query="SELECT * FROM `Main` ORDER BY `Last_Update` DESC, `Rank` DESC LIMIT 24";
-		$result=mysqli_query($VID_SERIES, $query);
-		while($row=mysqli_fetch_assoc($result)) {
-		 $Last_Episode_Part_array=($row["Last_Episode"]);
-		 $genre=($row["Subgenre"]);
-		 $title_str=($row["Search_Index"]);
-		 $last_episode=($row["Last_Episode"]);
-		 $anchor_href="/series/file/$row[Indexer]";
-		 $img_src="series/foto/thumbs/".$row["Indexer"].".jpg";
-		   echo '<li> <a href="'.$anchor_href.'"> <img src="'.$img_src.'" alt="" />
-					 <p>'.$title_str.'</p>
-					 <p>Genres:'.$genre.'</p>
-					 <p>Last Episode: '.$last_episode.'</p>
-				</li>';
-		   } 
-	
-		?>
 
-    </body>	
+		//define total number of results you want per page  
+		$results_per_page = 3;  
+
+    //find the total number of results stored in the database  
+       $query = "select *from Main";  
+       $result = mysqli_query($VID_SERIES, $query);  
+       $number_of_result = mysqli_num_rows($result);  
+
+    //determine the total number of pages available  
+       $number_of_page = ceil ($number_of_result / $results_per_page); 
+ 
+     //determine which page number visitor is currently on  
+       if (!isset ($_GET['page']) ) {  
+          $page = 1;  } 
+       else {  $page = $_GET['page'];  }     
+
+       //determine the sql LIMIT starting number for the results on the displaying page  
+        $page_first_result = ($page-1) * $results_per_page; 
+
+        
+		
+		        /*-- Use mysql functions: mysqli_query(…) and mysqli_fetch_array(…) 
+		        to execute a sql query to take the data from the database and
+		        than to take a row array from the query result set.--*/
+
+				$query_2="SELECT *FROM Main ORDER BY Last_Update DESC LIMIT " . $page_first_result . ',' . $results_per_page;   
+				$result_2=mysqli_query($VID_SERIES, $query_2);
+				while($row=mysqli_fetch_assoc($result_2)) {
+					$Last_Episode_Part_array=($row["Last_Episode"]);
+					$genre=($row["Subgenre"]);
+					$title_str=($row["Search_Index"]);
+					$last_episode=($row["Last_Episode"]);
+					$anchor_href="series/file/$row[Indexer]";
+					$img_src="foto/thumbs/".$row["Indexer"].".jpg";
+					  echo '<li> <a href="'.$anchor_href.'"> <img src="'.$img_src.'" alt="" />
+								<p>'.$title_str.'</p>
+								<p>Genres:'.$genre.'</p>
+								<p> <span>Last Episode: '.$last_episode.' </span></p>
+						   </li>';
+				   }
+	   ?>
+	 </div>
+	 
+    <div id="bottom_nav">
+
+	<?php
+
+     //display the link of the pages in URL  
+        for($page = 1; $page<= $number_of_page; $page++) {  
+		echo '<li><a href = "index_series.php?page=' . $page . '">' . $page . ' </a></li>';   
+	    } 
+	?>
+	
+	</div>
+</div>
+</div>
+</body>	
 </html>   
