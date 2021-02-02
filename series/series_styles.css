@@ -299,12 +299,11 @@
 #content #bottom_nav li{
   margin: 15px 1.5%;
 }
-}
+
 
 
 /*--------------------------------------------------*/
 
-/*Large Screens*/
 @media screen and (min-width:801px) {
   #content {
     max-width: 1000px;   
@@ -339,7 +338,7 @@
     padding: 8px;  
   }
 
-    /*Styling the series_list */
+    /*Styling the movies_list */
 
   #content #series_list{
     max-width:1000px;
@@ -351,22 +350,7 @@
     background: url("../images/lista_background.jpg");
   }
 
-    /*Bottom Navigation Styles */
-
-    #content #bottom_nav{
-      max-width: 800px; 
-      margin: 15px auto;
-      overflow: hidden;
-      padding-bottom: 15px; 
-    }
-  
-    #content #bottom_nav li{
-      margin: 15px 1.8%;
-    }
-  
-
 }
-
 /*--------------------------------------------------*/
 
 /*Extra Large Screens*/
@@ -384,7 +368,7 @@
     margin: 15px 0 0 2.2%;
     width: 22%;
   }
-  
+
   #content #bottom_nav{
     max-width: 1000px; 
     margin: 15px auto;

@@ -182,7 +182,7 @@
 				   }
 	   ?>
 	 </div>
-	</div> 
+	 
     <div id="bottom_nav">
 
 	<?php
