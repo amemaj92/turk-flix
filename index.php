@@ -45,8 +45,8 @@
                 <div id="main_nav">
                   <a href="index.php" class="current">Home</a>
                   <a href="series/index_series.php">Series</a>
-                  <a href="/movies/index_movies.php">Movies</a>
-                  <a href="/premium/info.php">Premium</a>
+                  <a href="movies/index_movies.php">Movies</a>
+                  <a href="premium/premium.php">Premium</a>
                </div>
          </div>
      </div>
@@ -131,7 +131,7 @@
                /*-- Use mysql functions: mysqli_query(…) and mysqli_fetch_array(…) 
                to execute a sql query to take the data from the database and
                 than to take a row array from the query result set.--*/
-                $query_movies="SELECT * FROM `main` ORDER BY `Added_On` DESC LIMIT 24";
+                $query_movies="SELECT * FROM `main` ORDER BY `Last_Update` DESC LIMIT 24";
                 $result_movies=mysqli_query($VID_MOVIES, $query_movies);
                 while($row_movies=mysqli_fetch_assoc($result_movies)) {
                 $title_str_movies=($row_movies["Search_Index"]);
@@ -139,7 +139,7 @@
                 $img_src_movies="/movies/foto/thumbs/".$row["Indexer"].".jpg";
                  echo '<li> <a href="'.$anchor_href_movies.'"> <img src="'.$img_src_movies.'" alt="" />
                         <p>'.$title_str_movies.'</p>
-                        <p><span>Last Update on:</span> '.date_format(date_create($row_movies["Added_On"]), "d.m.Y").'</p> </a>
+                        <p><span>Last Update on:</span> '.date_format(date_create($row_movies["Last_Update"]), "d.m.Y").'</p> </a>
                    </li>';
                   }
              ?>
