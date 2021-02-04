@@ -61,7 +61,7 @@
                   <a href="../index.php">Home</a>
                   <a href="../series/index_series.php">Series</a>
                   <a href="index_movies.php" class="current">Movies</a>
-                  <a href="../premium/info.php">Premium</a>
+                  <a href="../premium/premium.php">Premium</a>
                </div>
          </div>
       </div>
