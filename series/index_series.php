@@ -6,13 +6,14 @@
     	ini_set('display_errors', 1);
  
     session_start();
-    include_once("../uni/db_connect.php"); 
+	include_once("../uni/db_connect.php"); 
+	
     //Declaring Varibales
     $OS_Platform=GetOS();
     $IsMobile=IsMobile();
     $Prefix_Index=0; 
            
-    //Cler the SESSION POST array saved values when clicking on the Subcategory link. 
+
     if(!isset($_GET["Sort"]) && !isset($_GET["Wind"])) {unset($_SESSION['post']);}
 
     //Variabli Sort per radhitjen e rezultatit
@@ -26,7 +27,7 @@
     //Updating the $_SESSION['post'] superglobal for the next or previous nav clicks (specific post variables should be deleted with functions)
     if(isset($_POST) && count($_POST)) {$_SESSION['post'] = $_POST;}
     if(isset($_SESSION['post']) && count($_SESSION['post'])) {$_POST = $_SESSION['post'];}
-
+   
   ?>
 <html lang="en">
     <head>
@@ -60,7 +61,7 @@
                   <a href="../index.php">Home</a>
                   <a href="index_series.php" class="current">Series</a>
                   <a href="../movies/index_movies.php">Movies</a>
-                  <a href="../premium/info.php">Premium</a>
+                  <a href="../premium/premium.php">Premium</a>
                </div>
          </div>
       </div>
@@ -172,7 +173,7 @@
 					$genre=($row["Subgenre"]);
 					$title_str=($row["Search_Index"]);
 					$last_episode=($row["Last_Episode"]);
-					$anchor_href="series/file/$row[Indexer]";
+					$anchor_href="file/$row[Indexer]";
 					$img_src="foto/thumbs/".$row["Indexer"].".jpg";
 					  echo '<li> <a href="'.$anchor_href.'"> <img src="'.$img_src.'" alt="" />
 								<p>'.$title_str.'</p>
