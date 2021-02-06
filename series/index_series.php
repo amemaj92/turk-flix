@@ -14,19 +14,20 @@
     $Prefix_Index=0; 
            
 
-    if(!isset($_GET["Sort"]) && !isset($_GET["Wind"])) {unset($_SESSION['post']);}
+    /*---if(!isset($_POST["Sort"]) && !isset($_GET["page"])) {unset($_SESSION['post']);}---*/
 
     //Variabli Sort per radhitjen e rezultatit
-    if(isset($_GET["Sort"])) {$Sort=$_GET["Sort"];}
-    else {$Sort="default";}
+    if(isset($_POST["Sort"])) {$Sort=$_POST["Sort"]; $_SESSION["Sort"]=$Sort;}
+    elseif(isset($_SESSION["Sort"]))  {$Sort = $_SESSION["Sort"];}
+	      else {$Sort="default";}
 
     //Dritarja per kuantizimin e listes se serialeve
-    if(isset($_GET["Wind"])) {$Window=intval($_GET["Wind"]);}
-    else $Window=1; 
+    if(isset($_GET["page"])) {$Window=intval($_GET["page"]);}
+    else $page=1; 
 
-    //Updating the $_SESSION['post'] superglobal for the next or previous nav clicks (specific post variables should be deleted with functions)
+    /*---//Updating the $_SESSION['post'] superglobal for the next or previous nav clicks (specific post variables should be deleted with functions)
     if(isset($_POST) && count($_POST)) {$_SESSION['post'] = $_POST;}
-    if(isset($_SESSION['post']) && count($_SESSION['post'])) {$_POST = $_SESSION['post'];}
+    if(isset($_SESSION['post']) && count($_SESSION['post'])) {$_POST = $_SESSION['post'];}---*/
    
   ?>
 <html lang="en">
@@ -75,7 +76,7 @@
 
 		<div id="sort_form">
 			<h2>Choose a Sorting Option:</h2>
-			<form action="" method="GET">
+			<form action="<?php echo htmlspecialchars($_SERVER[" PHP_SELF "]);?>" method="POST">
 				<select>
 				  <option value="def"';if($Sort=="def") echo'selected="selected"'; echo'>Default</option>
 				  <option value="a_z"';if($Sort=="a_z") echo'selected="selected"'; echo'>Alphabetic(A-Z)</option>
@@ -168,7 +169,6 @@
 
 				$query_2="SELECT *FROM Main ORDER BY Last_Update DESC LIMIT " . $page_first_result . ',' . $results_per_page;   
 				$result_2=mysqli_query($VID_SERIES, $query_2);
-				echo '<ul>';
 				while($row=mysqli_fetch_assoc($result_2)) {
 					$Last_Episode_Part_array=($row["Last_Episode"]);
 					$genre=($row["Subgenre"]);
@@ -179,10 +179,9 @@
 					  echo '<li> <a href="'.$anchor_href.'"> <img src="'.$img_src.'" alt="" />
 								<p>'.$title_str.'</p>
 								<p>Genres:'.$genre.'</p>
-								<p> <span>Last Episode: '.$last_episode.' </span></p>
+								<p> <span>Last Episode: '.$last_episode.' </span></p></a>
 						   </li>';
 				   }
-				echo '</ul>';
 	   ?>
 	 </div>
 	 
@@ -191,11 +190,9 @@
 	<?php
 
      //display the link of the pages in URL  
-	    echo '<ul>';
-            for($page = 1; $page<= $number_of_page; $page++) {  
+        for($page = 1; $page<= $number_of_page; $page++) {  
 		echo '<li><a href = "index_series.php?page=' . $page . '">' . $page . ' </a></li>';   
-	    }
-	    echo '</ul>';
+	    } 
 	?>
 	
 	</div>
