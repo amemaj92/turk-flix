@@ -45,8 +45,8 @@
                 <div id="main_nav">
                   <a href="index.php" class="current">Home</a>
                   <a href="series/index_series.php">Series</a>
-                  <a href="/movies/index_movies.php">Movies</a>
-                  <a href="/premium/info.php">Premium</a>
+                  <a href="movies/index_movies.php">Movies</a>
+                  <a href="premium/info.php">Premium</a>
                </div>
          </div>
      </div>
