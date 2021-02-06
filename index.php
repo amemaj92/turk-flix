@@ -103,7 +103,7 @@
            /*-- Use mysql functions: mysqli_query(…) and mysqli_fetch_array(…) 
            to execute a sql query to take the data from the database and
            than to take a row array from the query result set.--*/
-           $query="SELECT * FROM `Main` ORDER BY `Last_Update` DESC, `Rank` DESC LIMIT 24";
+           $query="SELECT * FROM `Main` ORDER BY `Last_Update` DESC, `Rank` DESC LIMIT 10";
            $result=mysqli_query($VID_SERIES, $query);
            while($row=mysqli_fetch_assoc($result)) {
             $Last_Episode_Part_array=($row["Last_Episode"]);
