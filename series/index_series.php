@@ -168,6 +168,7 @@
 
 				$query_2="SELECT *FROM Main ORDER BY Last_Update DESC LIMIT " . $page_first_result . ',' . $results_per_page;   
 				$result_2=mysqli_query($VID_SERIES, $query_2);
+				echo '<ul>';
 				while($row=mysqli_fetch_assoc($result_2)) {
 					$Last_Episode_Part_array=($row["Last_Episode"]);
 					$genre=($row["Subgenre"]);
@@ -181,6 +182,7 @@
 								<p> <span>Last Episode: '.$last_episode.' </span></p>
 						   </li>';
 				   }
+				echo '</ul>';
 	   ?>
 	 </div>
 	 
@@ -189,9 +191,11 @@
 	<?php
 
      //display the link of the pages in URL  
-        for($page = 1; $page<= $number_of_page; $page++) {  
+	    echo '<ul>';
+            for($page = 1; $page<= $number_of_page; $page++) {  
 		echo '<li><a href = "index_series.php?page=' . $page . '">' . $page . ' </a></li>';   
-	    } 
+	    }
+	    echo '</ul>';
 	?>
 	
 	</div>
