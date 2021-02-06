@@ -1,8 +1,7 @@
 <?php 
 
 include('Uni_Globals.php');   
-include('Uni_Functions.php'); 
-include('../Series/sort_series.php'); 
+include('Uni_Functions.php');
 
 
 $VID_SERIES = new mysqli(HOST, USER1, PASSWORD1, DATABASE1);
