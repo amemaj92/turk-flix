@@ -16,10 +16,10 @@
 
     /*---if(!isset($_POST["Sort"]) && !isset($_GET["page"])) {unset($_SESSION['post']);}---*/
 
-    //Variabli Sort per radhitjen e rezultatit
-    if(isset($_POST["Sort"])) {$Sort=$_POST["Sort"]; $_SESSION["Sort"]=$Sort;}
-    elseif(isset($_SESSION["Sort"]))  {$Sort = $_SESSION["Sort"];}
-	      else {$Sort="default";}
+		   //Variabli Sort per radhitjen e rezultatit
+		   if(isset($_POST["Sort"])) {$Sort=$_POST["Sort"]; $_SESSION["Sort"]=$Sort;}
+		   elseif(isset($_SESSION["Sort"]))  {$Sort = $_SESSION["Sort"];}
+		   else {$Sort="default";}
 
     //Dritarja per kuantizimin e listes se serialeve
     if(isset($_GET["page"])) {$Window=intval($_GET["page"]);}
@@ -74,32 +74,32 @@
 
 		     <!-- The sort and search section-->
 
-		<div id="sort_form">
+			<div id="sort_form">
 			<h2>Choose a Sorting Option:</h2>
-			<form action="<?php echo htmlspecialchars($_SERVER[" PHP_SELF "]);?>" method="POST">
-				<select>
-				  <option value="def"';if($Sort=="def") echo'selected="selected"'; echo'>Default</option>
-				  <option value="a_z"';if($Sort=="a_z") echo'selected="selected"'; echo'>Alphabetic(A-Z)</option>
-				  <option value="z_a"';if($Sort=="z_a") echo'selected="selected"'; echo'>Alphabetic Inv (Z-A)</option>
-				  <option value="n_o"';if($Sort=="n_o") echo'selected="selected"'; echo'>Date(Newer Titles First)</option>
-				  <option value="o_n"';if($Sort=="o_n") echo'selected="selected"'; echo'>Date Inv(Older Titles First)</option>
+			<form method="POST">
+				<select name = "Sort">
+				  <option value="def" <?php if($Sort=="def") echo 'selected="selected"'; ?>>Default</option>
+				  <option value="a_z" <?php if($Sort=="a_z") echo 'selected="selected"'; ?>>Alphabetic(A-Z)</option>
+				  <option value="z_a" <?php if($Sort=="z_a") echo 'selected="selected"'; ?>>Alphabetic Inv (Z-A)</option>
+				  <option value="n_o" <?php if($Sort=="n_o") echo 'selected="selected"'; ?>>Date(Newer Titles First)</option>
+				  <option value="o_n" <?php if($Sort=="o_n") echo 'selected="selected"'; ?>>Date Inv(Older Titles First)</option>
 				</select>
 				<input type="submit" value="Sort">
 			</form>
+			
 		</div>
 		
 		<div id="simple_search_form">
 			<h2>Search for something general:</h2>
-			<form  action="'.$Sort.'" method="POST">
-				<input type="hidden" name="Req_Type" value="simple_search">
+			<form  action="" method="POST">
+				<input type="hidden" name="simple_search" value="true">
 				<input type="text" name="search_string" placeholder="Title, actor, director">
 				<input type="submit" value="Search">
 			</form>
 			<a href="#" id="avd_search_toggler">Advanced Search</a> 
 		</div>
 		<div id="adv_search_form">			
-			<form action="'.$Sort.'" method="POST">
-			  <input type="hidden" name="Req_Type" value="advanced_search">
+			<form method="POST">
 			    <fieldset>
 					<legend>Advanced Search</legend>
 				    <p>Note: When entering multiple data on one field, separate them with a comma.</p>
@@ -139,61 +139,13 @@
 		
 		
 	<div id="series_list">
-
-		<?php
-
-		//define total number of results you want per page  
-		$results_per_page = 3;  
-
-    //find the total number of results stored in the database  
-       $query = "select *from Main";  
-       $result = mysqli_query($VID_SERIES, $query);  
-       $number_of_result = mysqli_num_rows($result);  
-
-    //determine the total number of pages available  
-       $number_of_page = ceil ($number_of_result / $results_per_page); 
- 
-     //determine which page number visitor is currently on  
-       if (!isset ($_GET['page']) ) {  
-          $page = 1;  } 
-       else {  $page = $_GET['page'];  }     
-
-       //determine the sql LIMIT starting number for the results on the displaying page  
-        $page_first_result = ($page-1) * $results_per_page; 
-
-        
+           
+		<?php 
 		
-		        /*-- Use mysql functions: mysqli_query(…) and mysqli_fetch_array(…) 
-		        to execute a sql query to take the data from the database and
-		        than to take a row array from the query result set.--*/
-
-				$query_2="SELECT *FROM Main ORDER BY Last_Update DESC LIMIT " . $page_first_result . ',' . $results_per_page;   
-				$result_2=mysqli_query($VID_SERIES, $query_2);
-				while($row=mysqli_fetch_assoc($result_2)) {
-					$Last_Episode_Part_array=($row["Last_Episode"]);
-					$genre=($row["Subgenre"]);
-					$title_str=($row["Search_Index"]);
-					$last_episode=($row["Last_Episode"]);
-					$anchor_href="file/$row[Indexer]";
-					$img_src="foto/thumbs/".$row["Indexer"].".jpg";
-					  echo '<li> <a href="'.$anchor_href.'"> <img src="'.$img_src.'" alt="" />
-								<p>'.$title_str.'</p>
-								<p>Genres:'.$genre.'</p>
-								<p> <span>Last Episode: '.$last_episode.' </span></p></a>
-						   </li>';
-				   }
-	   ?>
-	 </div>
-	 
-    <div id="bottom_nav">
-
-	<?php
-
-     //display the link of the pages in URL  
-        for($page = 1; $page<= $number_of_page; $page++) {  
-		echo '<li><a href = "index_series.php?page=' . $page . '">' . $page . ' </a></li>';   
-	    } 
-	?>
+		if(isset($_POST["Search"])) 
+		{include("search.php");}
+		else {include("sort.php");}
+		?>
 	
 	</div>
 </div>
