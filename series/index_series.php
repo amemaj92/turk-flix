@@ -13,22 +13,10 @@
     $IsMobile=IsMobile();
     $Prefix_Index=0; 
            
-
-    /*---if(!isset($_POST["Sort"]) && !isset($_GET["page"])) {unset($_SESSION['post']);}---*/
-
-		   //Variabli Sort per radhitjen e rezultatit
-		   if(isset($_POST["Sort"])) {$Sort=$_POST["Sort"]; $_SESSION["Sort"]=$Sort;}
-		   elseif(isset($_SESSION["Sort"]))  {$Sort = $_SESSION["Sort"];}
-		   else {$Sort="default";}
-
     //Dritarja per kuantizimin e listes se serialeve
-    if(isset($_GET["page"])) {$Window=intval($_GET["page"]);}
-    else $page=1; 
+    if (!isset ($_GET['page']) ) {$page = 1;} 
+    else {$page = $_GET['page'];}     
 
-    /*---//Updating the $_SESSION['post'] superglobal for the next or previous nav clicks (specific post variables should be deleted with functions)
-    if(isset($_POST) && count($_POST)) {$_SESSION['post'] = $_POST;}
-    if(isset($_SESSION['post']) && count($_SESSION['post'])) {$_POST = $_SESSION['post'];}---*/
-   
   ?>
 <html lang="en">
     <head>
@@ -140,10 +128,14 @@
 		
 	<div id="series_list">
            
-		<?php 
-		
+		<?php 		
 		include("sort.php");
-		?>
+		include("search.php");?>
+	</div>
+	
+	<?php
+		include("bottom_nav.php");
+	?>
 	
 	</div>
 </div>
