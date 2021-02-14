@@ -83,7 +83,7 @@ if(isset($_POST["simple_search"]))
 
         $query_2="SELECT * FROM Main WHERE MATCH(`Search_Index`, `Other_Titles`, `Subgenre`, `Year1`, `Year2`, `Directors`, `Actors`) 
         AGAINST('$search_string' IN BOOLEAN MODE) ORDER BY $Sort_Col $Sort_ASC_DESC LIMIT $results_per_page OFFSET $page_first_result";
-        outputSeriesList($query2, $VID_SERIES);	
+        outputSeriesList($query_2, $VID_SERIES);	
 }
 //
 
@@ -104,7 +104,7 @@ else
         //determine the sql LIMIT starting number for the results on the displaying page  
         $page_first_result = ($page-1) * $results_per_page; 
         $query_2="SELECT * FROM `Main` ORDER BY $sort_key_Col $sort_key_ASC_DESC LIMIT $results_per_page OFFSET $page_first_result";   
-        outputSeriesList($query2,$VID_SERIES);
+        outputSeriesList($query_2,$VID_SERIES);
 }               
 ?>
 	
