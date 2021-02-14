@@ -2,6 +2,7 @@
 
 function set_Sort($sort_key)
 {
+	global $Sort_Col, $Sort_ASC_DESC; 
 	//Use Example: 
 	//setSort("def");
 	//setSort("o_n");
