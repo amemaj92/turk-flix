@@ -36,12 +36,12 @@ function outputSeriesList($query, $database)
 }
 
 global $page; 
+global $Sort_Col, $Sort_ASC_DESC;
 
 //Doing Search if search string is given 
 if(isset($_POST["simple_search"]))
 {
         //Clearing previous sort key from session and setting it to default
-        global $Sort_Col, $Sort_ASC_DESC;
         clearSortKeyFromSession();
         setSortColumns("def");
         saveSortKeyInSession("def");
@@ -103,7 +103,7 @@ else
         
         //determine the sql LIMIT starting number for the results on the displaying page  
         $page_first_result = ($page-1) * $results_per_page; 
-        $query_2="SELECT * FROM `Main` ORDER BY $sort_key_Col $sort_key_ASC_DESC LIMIT $results_per_page OFFSET $page_first_result";   
+        $query_2="SELECT * FROM `Main` ORDER BY $Sort_Col $Sort_ASC_DESC LIMIT $results_per_page OFFSET $page_first_result";   
         outputSeriesList($query_2,$VID_SERIES);
 }               
 ?>
