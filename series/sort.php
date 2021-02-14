@@ -12,3 +12,5 @@ elseif(isset($SESSION["Sort"])) $sort_key=$SESSION["Sort"]; //Then get value of 
 else $sort_key="def";  										//Otherwise set to default value. 
 setSortColumns ($sort_key); 
 saveSortKeyInSession ($sort_key);
+
+?>
