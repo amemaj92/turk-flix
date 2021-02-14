@@ -16,49 +16,6 @@
     }
     else {$Sort_Col="Rank"; $Sort_ASC_DESC="DESC";} 
 
-	//Printing Output data code
-     //define total number of results you want per page  
-     $results_per_page = 4;  
-
-    //find the total number of results stored in the database  
-       $query = "select *from Main";  
-       $result = mysqli_query($VID_SERIES, $query);  
-       $number_of_result = mysqli_num_rows($result);  
-
-    //determine the total number of pages available  
-       $number_of_page = ceil ($number_of_result / $results_per_page); 
- 
-     //determine which page number visitor is currently on  
-       if (!isset ($_GET['page']) ) {  
-          $page = 1;  } 
-       else {  $page = $_GET['page'];  }     
-
-       //determine the sql LIMIT starting number for the results on the displaying page  
-        $page_first_result = ($page-1) * $results_per_page; 
-
-        
-		
-		        /*-- Use mysql functions: mysqli_query(…) and mysqli_fetch_array(…) 
-		        to execute a sql query to take the data from the database and
-		        than to take a row array from the query result set.--*/
-
-				$query_2="SELECT * FROM `Main` ORDER BY $Sort_Col $Sort_ASC_DESC LIMIT $results_per_page OFFSET $page_first_result";   
-				$result_2=mysqli_query($VID_SERIES, $query_2);
-
-				while($row=mysqli_fetch_assoc($result_2)) {
-					$Last_Episode_Part_array=($row["Last_Episode"]);
-					$genre=($row["Subgenre"]);
-					$title_str=($row["Search_Index"]);
-					$last_episode=($row["Last_Episode"]);
-					$anchor_href="file/$row[Indexer]";
-					$img_src="foto/thumbs/".$row["Indexer"].".jpg";
-					  echo '<li> <a href="'.$anchor_href.'"> <img src="'.$img_src.'" alt="" />
-								<p>'.$title_str.'</p>
-								<p>Genres:'.$genre.'</p>
-								<p> <span>Last Episode: '.$last_episode.' </span></p></a>
-						   </li>';
-				   }
-            
 	    if(isset($_POST["simple_search"]))
 		{
 		         //define total number of results you want per page  
@@ -129,7 +86,7 @@
 				   }
 		}
 
-        if((isset($_POST["advanced_search"]))&&(isset($_POST["Title"]))&&false)
+        else if((isset($_POST["advanced_search"]))&&(isset($_POST["Title"]))&&false)
 		
 	
 		//------------Marrja e inputeve dhe pastrimi i tyre nga hapesirat boshe rrotull presjes. -------------------//
@@ -153,6 +110,52 @@
 				   }
 
 				}
+
+	else 
+	{
+		//Printing Output data code
+     //define total number of results you want per page  
+     $results_per_page = 4;  
+
+    //find the total number of results stored in the database  
+       $query = "select *from Main";  
+       $result = mysqli_query($VID_SERIES, $query);  
+       $number_of_result = mysqli_num_rows($result);  
+
+    //determine the total number of pages available  
+       $number_of_page = ceil ($number_of_result / $results_per_page); 
+ 
+     //determine which page number visitor is currently on  
+       if (!isset ($_GET['page']) ) {  
+          $page = 1;  } 
+       else {  $page = $_GET['page'];  }     
+
+       //determine the sql LIMIT starting number for the results on the displaying page  
+        $page_first_result = ($page-1) * $results_per_page; 
+
+        
+		
+		        /*-- Use mysql functions: mysqli_query(…) and mysqli_fetch_array(…) 
+		        to execute a sql query to take the data from the database and
+		        than to take a row array from the query result set.--*/
+
+				$query_2="SELECT * FROM `Main` ORDER BY $Sort_Col $Sort_ASC_DESC LIMIT $results_per_page OFFSET $page_first_result";   
+				$result_2=mysqli_query($VID_SERIES, $query_2);
+
+				while($row=mysqli_fetch_assoc($result_2)) {
+					$Last_Episode_Part_array=($row["Last_Episode"]);
+					$genre=($row["Subgenre"]);
+					$title_str=($row["Search_Index"]);
+					$last_episode=($row["Last_Episode"]);
+					$anchor_href="file/$row[Indexer]";
+					$img_src="foto/thumbs/".$row["Indexer"].".jpg";
+					  echo '<li> <a href="'.$anchor_href.'"> <img src="'.$img_src.'" alt="" />
+								<p>'.$title_str.'</p>
+								<p>Genres:'.$genre.'</p>
+								<p> <span>Last Episode: '.$last_episode.' </span></p></a>
+						   </li>';
+				   }
+	}
 			
 	   ?>
 	 </div>
