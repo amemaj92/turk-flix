@@ -2,7 +2,7 @@
 
 include_once("sort_functions.php");
 //Initial Value of Sorting variable $sort_key; 
-if(isset($_POST["simple_search"])) 
+if(isset($_POST["simple_search"]) or isset($_POST["reset_search_string"])) 
 { 
         //Clearing previous sort key from session and setting it to default
         clearSortKeyFromSession();

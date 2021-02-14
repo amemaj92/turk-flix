@@ -165,6 +165,7 @@
     max-width: 360px; 
     margin: 1px auto;
     overflow: hidden;
+    clear: both; 
   }
 
   #content #series_list li{

@@ -84,46 +84,12 @@
 				<input type="text" name="search_string" placeholder="Title, actor, director">
 				<input type="submit" value="Search">
 			</form>
-			<a href="#" id="avd_search_toggler">Advanced Search</a> 
-		</div>
-		<div id="adv_search_form">			
-			<form method="POST">
-			    <fieldset>
-					<legend>Advanced Search</legend>
-				    <p>Note: When entering multiple data on one field, separate them with a comma.</p>
-				    <ul>
-					<li>
-					<label for="title">Title:</label>
-					<input type="text" id="titulli" name="Title" placeholder="Kara Sevda">
-					</li>
-					
-					<li>
-					<label for="director">Direct:</label>
-					<input type="text" id="regjia" name="Directors" placeholder="Hilal Saral">
-					</li>
-					
-					<li>
-					<label for="years">Year:</label>
-					<input type="text" id="vitet" name="Years" placeholder="2016,2017">
-					</li>
-					
-					<li>
-					<label for="actors">Actors:</label>
-					<input type="text" id="aktoret" name="Actors" placeholder="Burak Ozcivit,Neslihan Atagul">
-					</li>
-					
-					<li>
-					<label for="genre">Genre:</label>
-					<input type="text" id="zhanri" name="Subgenre" placeholder="drama, romance">
-					</li>
-					
-					<li>
-					<input type="submit" value="Search">
-					</li>					
-				</ul>				
+
+			<form action="" method="POST"> 
+				<input type="hidden" name="reset_search_string" value="true">
+				<input type="submit" value="Clear">
 			</form>
-		</div>
-		
+		</div>		
 		
 		
 	<div id="series_list">

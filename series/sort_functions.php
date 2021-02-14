@@ -20,6 +20,6 @@ function saveSortKeyInSession ($sort_key)
 
 function clearSortKeyFromSession()
 {
-	unset($_SESSION["Sort"]);
+	if(isset($_SESSION["Sort"])) unset($_SESSION["Sort"]);
 }
 ?>
