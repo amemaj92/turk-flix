@@ -142,9 +142,7 @@
            
 		<?php 
 		
-		if(isset($_POST["Search"])) 
-		{include("search.php");}
-		else {include("sort.php");}
+		include("sort.php");
 		?>
 	
 	</div>

@@ -3,25 +3,24 @@
 
 
 
-      if(isset($Sort)) 
-     {
-	//We do it this way to not show the name of the columns in DB for security reasons
-	if ($Sort=="default") {$Sort_Col="Rank"; $Sort_ASC_DESC="DESC"; }
-	else if($Sort=="def") {$Sort_Col="Rank"; $Sort_ASC_DESC="DESC"; }
-	else if($Sort=="a_z") {$Sort_Col="Indexer"; $Sort_ASC_DESC="ASC"; }
-	else if($Sort=="z_a") {$Sort_Col="Indexer"; $Sort_ASC_DESC="DESC";}
-	else if($Sort=="n_o") {$Sort_Col="Year2"; $Sort_ASC_DESC="DESC"; $Sort_Col2="Indexer"; $Sort_ASC_DESC2="ASC";} //n_o="New to Old"
-	else if($Sort=="o_n") {$Sort_Col="Year2"; $Sort_ASC_DESC="ASC"; $Sort_Col2="Indexer"; $Sort_ASC_DESC2="ASC";} //o_n="Old to New"
-	else {$Sort_Col="Rank"; $Sort_ASC_DESC="DESC";}
+    if(isset($Sort)) 
+    {
+		//We do it this way to not show the name of the columns in DB for security reasons
+		if ($Sort=="default") {$Sort_Col="Rank"; $Sort_ASC_DESC="DESC"; }
+		else if($Sort=="def") {$Sort_Col="Rank"; $Sort_ASC_DESC="DESC"; }
+		else if($Sort=="a_z") {$Sort_Col="Indexer"; $Sort_ASC_DESC="ASC"; }
+		else if($Sort=="z_a") {$Sort_Col="Indexer"; $Sort_ASC_DESC="DESC";}
+		else if($Sort=="n_o") {$Sort_Col="Year2"; $Sort_ASC_DESC="DESC"; $Sort_Col2="Indexer"; $Sort_ASC_DESC2="ASC";} //n_o="New to Old"
+		else if($Sort=="o_n") {$Sort_Col="Year2"; $Sort_ASC_DESC="ASC"; $Sort_Col2="Indexer"; $Sort_ASC_DESC2="ASC";} //o_n="Old to New"
+		else {$Sort_Col="Rank"; $Sort_ASC_DESC="DESC";}
     }
     else {$Sort_Col="Rank"; $Sort_ASC_DESC="DESC";} 
 
-	    if(isset($_POST["simple_search"]))
-		{
-		         //define total number of results you want per page  
-		   	 $results_per_page = 4;  
-
-            	$search_string=""; 
+	if(isset($_POST["simple_search"]))
+	{
+		//define total number of results you want per page  
+		$results_per_page = 4;  
+		$search_string=""; 
 		if(isset($_POST["search_string"]) && !empty($_POST["search_string"])) $search_string=$_POST["search_string"];
 		else {return("No data input. Please input some data to search for and try again.");}
 		
@@ -40,14 +39,15 @@
 			if(strlen($search_words_array[$i])<4) {$search_string=$search_string."+".$search_words_array[$i]." ";}
 			else $search_string=$search_string."+".$search_words_array[$i]."* ";
 		}
-			
+		
+		
 		$query="SELECT * FROM Main WHERE MATCH(`Search_Index`, `Other_Titles`, `Subgenre`, `Year1`, `Year2`, `Directors`, `Actors`) 
 		AGAINST('$search_string' IN BOOLEAN MODE) ORDER BY $Sort_Col $Sort_ASC_DESC";
 		$result=mysqli_query($VID_SERIES, $query); 
 		    
 	// Printing Output Data
      //define total number of results you want per page  
-
+	 $results_per_page = 4;  
 
     //find the total number of results stored in the database  
        $number_of_result = mysqli_num_rows($result);  
@@ -68,7 +68,7 @@
 		        /*-- Use mysql functions: mysqli_query(…) and mysqli_fetch_array(…) 
 		        to execute a sql query to take the data from the database and
 		        than to take a row array from the query result set.--*/
-
+		
 				$query_2=$query. "LIMIT $results_per_page OFFSET $page_first_result";   
 				$result_2=mysqli_query($VID_SERIES, $query_2);
 				while($row=mysqli_fetch_assoc($result_2)) {
@@ -84,8 +84,10 @@
 								<p> <span>Last Episode: '.$last_episode.' </span></p></a>
 						   </li>';
 				   }
+				   
 		}
-
+		
+		/*
         else if((isset($_POST["advanced_search"]))&&(isset($_POST["Title"]))&&false)
 		
 	
@@ -110,6 +112,7 @@
 				   }
 
 				}
+				*/
 
 	else 
 	{
@@ -157,8 +160,8 @@
 				   }
 	}
 			
-	   ?>
-	 </div>
+	?>
+	</div>
 	 
     <div id="bottom_nav">
 
