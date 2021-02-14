@@ -66,11 +66,11 @@
 			<h2>Choose a Sorting Option:</h2>
 			<form method="POST">
 				<select name = "Sort">
-				  <option value="def" <?php if($Sort=="def") echo 'selected="selected"'; ?>>Default</option>
-				  <option value="a_z" <?php if($Sort=="a_z") echo 'selected="selected"'; ?>>Alphabetic(A-Z)</option>
-				  <option value="z_a" <?php if($Sort=="z_a") echo 'selected="selected"'; ?>>Alphabetic Inv (Z-A)</option>
-				  <option value="n_o" <?php if($Sort=="n_o") echo 'selected="selected"'; ?>>Date(Newer Titles First)</option>
-				  <option value="o_n" <?php if($Sort=="o_n") echo 'selected="selected"'; ?>>Date Inv(Older Titles First)</option>
+				  <option value="def" <?php if($sort_key=="def") echo 'selected="selected"'; ?>>Default</option>
+				  <option value="a_z" <?php if($sort_key=="a_z") echo 'selected="selected"'; ?>>Alphabetic(A-Z)</option>
+				  <option value="z_a" <?php if($sort_key=="z_a") echo 'selected="selected"'; ?>>Alphabetic Inv (Z-A)</option>
+				  <option value="n_o" <?php if($sort_key=="n_o") echo 'selected="selected"'; ?>>Date(Newer Titles First)</option>
+				  <option value="o_n" <?php if($sort_key=="o_n") echo 'selected="selected"'; ?>>Date Inv(Older Titles First)</option>
 				</select>
 				<input type="submit" value="Sort">
 			</form>
