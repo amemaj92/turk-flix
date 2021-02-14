@@ -61,7 +61,7 @@
 		   <h1>Turkish Series with English Subtitles</h1>
 
 		     <!-- The sort and search section-->
-
+		<?php include("sort.php"); ?>
 			<div id="sort_form">
 			<h2>Choose a Sorting Option:</h2>
 			<form method="POST">
@@ -128,14 +128,10 @@
 		
 	<div id="series_list">
            
-		<?php 		
-		include("sort.php");
-		include("search.php");?>
+		<?php include("search.php");?>
 	</div>
 	
-	<?php
-		include("bottom_nav.php");
-	?>
+	<?php include("bottom_nav.php"); ?>
 	
 	</div>
 </div>
