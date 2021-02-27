@@ -1,0 +1,212 @@
+#content {
+    margin: 0 auto;
+    min-width: 320px;
+    max-width: 360px;
+    font-size: 14pt;
+    background-color: #E7EAFF; 
+    padding-bottom: 15px; 
+  }
+
+  #content #info {
+    margin: 5px 2.4%;
+  }
+
+  #content #info h1 {
+    margin: 5px auto; 
+    padding: 10px 0;  
+    width: 100%; 
+    color: #2D3594;
+    text-align: center;
+    font-size: 125%; 
+    border-bottom: 1px dashed blue; 
+    overflow: hidden; 
+  }
+
+  #content #info h2 {
+    margin: 5px auto; 
+    text-align: center; 
+    padding: 5px; 
+    color: #bb700e;
+    font-size: 100%; 
+  }
+
+   #content #info #video_container {
+    margin: 0 auto; 
+    width: 89%;
+    max-width: 960px;
+  }
+
+  #content #info #video_container video{
+    margin: 0 auto; 
+    border: 1px solid #bb700e; 
+    background: rgb(78, 76, 76); 
+    width: 100%;
+    display: block;
+  }
+
+  #content #tabs_info h3{
+    margin: 0px auto;
+    padding: 5px;
+    max-width: 1280px;
+    font-size: 10pt;
+    width:70%;
+  }
+
+  #content #info #tabs_info ul{
+    margin: 5px auto;
+    list-style: none;
+    max-width: 1280px;
+    width: 90%;
+  }
+
+  #content #info #tabs_info ul li {
+    padding: 3px; 
+    font-weight: bold; 
+    color: #2D3594;
+    font-size: 14pt;
+
+    
+  }
+
+  #content #info #tabs_info ul span {
+    font-style: italic;
+    color:#bb700e;
+  }
+
+  #content #info #description p {
+    margin: 10px auto; 
+    font-weight: normal;
+    max-width: 1280px;
+    width: 90%;
+    color: black;
+
+  }
+
+  #content #info #description p span {
+    font-weight: bold;
+    text-decoration: underline;
+    color: #bb700e;
+  }
+
+  /*--------------Medium Screens-------------------*/
+
+  @media screen and (min-width: 481px) {
+    #content {
+       max-width: 680px;  
+       font-size: 15pt; 
+     }
+
+     #content #info #tabs_info h3{
+        margin: 10px auto;
+        font-size: 12pt;
+        width:70%;
+      } 
+
+      #content #info #tabs_info a{
+        color: #bb700e;
+      } 
+
+
+    #content #info #tabs_info ul{
+    margin: 10px auto;
+    overflow: hidden;
+    clear: both; 
+      }
+     
+    #content #info #tabs_info ul li {
+    padding: 5px; 
+    float: left;
+    margin: 0 auto;
+      }
+
+    #content #info #description p {
+    margin: 10px auto;
+     }
+    }
+
+ /*--------------Large Screens-------------------*/
+
+ @media screen and (min-width:801px) {
+    #content {
+      max-width: 1000px; 
+      font-size: 18pt; 
+      overflow: hidden; 
+      padding-bottom: 25px;
+    }
+
+    #content #info {
+        font-size: 120%;
+      }
+
+    #content #info h1 { 
+    font-size: 130%; 
+    padding: 20px 0; 
+      }
+    
+      #content #info h2 { 
+        font-size: 130%; 
+        min-width: 700px;
+        padding: 15px; 
+      }
+    
+      #content #info #tabs_info h3{
+        font-size: 15pt;
+      }
+
+      #content #info #tabs_info ul li {
+        padding: 5px; 
+        width: 47%; 
+        float: left;
+        margin: 0 auto;
+      }
+    
+      #content #info #description p {
+        font-size: 17pt;
+      }
+}
+
+/*-----------------Extra Large Screens---------------*/
+
+@media screen and (min-width:1121px) {
+    #content {
+     max-width: 1440px; 
+     padding-bottom: 35px; 
+   }
+ 
+   #content #info {
+     font-size: 130%;
+   }
+   
+  #content #info h1 {  
+     width: 960px;
+     padding: 20px 20px 40px 0px; 
+   }
+ 
+   #content #info h1 span {
+     width: 70%;   
+   }
+ 
+   #content #info h2 { 
+     font-size: 135%; 
+     width: 960px;
+     padding: 10px; 
+   }
+
+   #content #info #tabs_info h3{
+    margin: 0 auto;
+    text-align: center;
+    font-size: 18pt;
+  }
+
+   #content #info #tabs_info ul li {
+    padding: 5px; 
+    width: 45%; 
+    font-size:17pt;
+
+    }
+
+    #content #info #description p {
+    font-size: 22pt;
+  }
+}
+  
