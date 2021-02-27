@@ -1,0 +1,156 @@
+#forms {
+    margin: 5px auto; 
+    width: 100%; 
+    overflow: hidden;
+    background: rgba(255,255,255,0.3); 
+    color: white; 
+    min-width: 320px;
+    padding-bottom: 10px;
+  }
+
+  #intro_wrapper {
+    margin: 0 auto; 
+    max-width: 360px;
+  }
+
+  #forms div h1 {
+    padding: 10px 0 10px 10px;
+    width: 100%;
+    font-size: 16pt;
+    font-style: italic;
+    text-align: center;
+  }
+
+  #forms #contact_form {
+    background-color: white;
+    width: 99%;
+    height:100%;
+    border: 2px solid orangered;
+  }
+
+  #forms ul{
+    margin: 5px 16.5%;
+    list-style: none; 
+    overflow: hidden;
+  }
+
+
+  #forms li input[type=text] {
+    margin: 5px auto; 
+    height: 20px;
+    width:200px;
+    padding: 3px;
+    border: 2px solid #2224A4;
+    font-weight: bold;
+    color: black;
+    background: white;
+  } 
+
+  #forms li textarea {
+    margin: 5px auto;
+    width:200px;
+    height: 100px;
+    padding: 3px;
+    border: 2px solid #2224A4;
+    font-weight: bold;
+    color: black;
+    background: white;
+  } 
+
+  #forms li input[type=button]{
+    width: 50%;
+    height: 30px; 
+    display: block;
+    margin: 5px auto; 
+    padding: 2px; 
+    border: 2px solid white;
+    border-radius: 5px; 
+    color: white; 
+    background: orangered; 
+    cursor:pointer;
+  }
+
+  #forms li input[type=button]:hover{
+    text-decoration: italic; 
+    background: blue;
+    border-color: orangered;
+  }
+
+  /*----------@media styles for screens >=481px----------*/
+
+  @media screen and (min-width: 481px) {
+  
+    /*Intorduction Styles and Rules*/
+    #forms{
+      max-width: 680px;
+      padding-bottom: 50px;
+    }
+    
+    #intro_wrapper {
+      max-width: 480px; 
+    }
+    
+    #forms div h1 {  
+      width: 95%;
+      font-size: 18pt;
+    }
+
+    #forms ul{
+      margin: 5px 27%;
+    }
+  }
+
+  /*----------@media styles for screens >=960px----------*/
+@media screen and (min-width: 801px) {
+  #forms{
+    max-width: 1120px;
+    padding-bottom: 100px;
+  }
+
+  #intro_wrapper{
+    max-width: 1120px;
+  }
+
+  #forms #contact_form {
+    margin: 0 auto;
+    width: 50%;
+    height:100%;
+    border: 2px solid orangered;
+  }
+
+  #forms div h1 { 
+    margin: 0 auto;
+    width: 50%;
+    font-size: 20pt;
+  }
+    
+}
+
+@media screen and (min-width: 1121px) {
+
+  #forms{
+    max-width: 1440px;
+    padding-bottom: 100px;
+  }
+
+  #intro_wrapper{
+    max-width: 1440px;
+  }
+
+  #forms #contact_form {
+    margin: 0 auto;
+    width: 50%;
+    height:100%;
+    border: 2px solid orangered;
+  }
+
+  #forms div h1 { 
+    margin: 0 auto;
+    width: 50%;
+    font-size: 20pt;
+  }
+
+  #forms ul{
+    margin: 5px 30%;
+  }
+}
