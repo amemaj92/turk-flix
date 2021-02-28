@@ -38,7 +38,7 @@
     $total_pages = ceil ($number_of_result / $results_per_page);
 
     //First determine the set in which the $page belongs
-    $set_of_current_page = max(1,ceil($total_pages / $nav_pages_per_set)); //lowest limit is 1
+    $set_of_current_page = ceil($page / $nav_pages_per_set); //lowest limit is 1
 
     echo "$set_of_current_page, $page, $nav_pages_per_set, $total_pages";
     //Output the Bottom nav by supplying the right arguments to the function
